@@ -1,0 +1,18 @@
+.main-banner {
+    position: relative;
+
+    &__video {
+        width: 100%;
+        min-height: 60vh;
+    }
+}
+
+.banner__content {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    padding: 0 1rem 5rem 10% ;
+    z-index: var(--z-normal);
+    
+}
+

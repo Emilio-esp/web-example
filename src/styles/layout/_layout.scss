@@ -1,0 +1,78 @@
+.l-container {
+    max-width: 80%;
+    margin-right  : auto;
+    margin-left   : auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.center-content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    margin-top: 1em;
+    padding: 0.8rem 0.8rem;
+    background-color: $color-primary;
+    color: white;
+    display: inline-block;
+    position: relative;
+    transform-origin: top left;
+    transform-style: preserve-3d;
+    transition: all 0.20s ease;
+
+    &::before{
+        position: absolute;
+        content: attr(data-text);
+        top: 100%;
+        left: 0;
+        padding: 0.6rem 0.6rem;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        color: darken($color-primary, 10);
+        transform-origin: top left;
+        transform:rotateX(90deg);
+        border: 2px solid $color-primary;
+    }
+
+    &:hover{
+        transform:rotateX(-90deg);
+    }
+}
+
+.section_title {
+    font-size: 65px;
+    color: darken($color-primary, 15);
+    font-weight: 600;
+    opacity: 0.8;
+    text-shadow: 10px 10px 4px $color-primary;
+}
+
+.active {
+    background-color: $color-primary;
+    color: white;
+}
+
+.l-section {
+    padding: 3rem 0em 5em 0em ;    
+    margin-top: 2em;
+}
+
+
+@for $i from 1 through 20 {
+    .s-#{$i} {
+        width: #{$i * 5%};
+    }
+}
+
+@include from(large) {
+  @for $i from 1 through 20 {
+    .l-#{$i} {
+      width : #{$i * 5%};
+    }
+  }
+}

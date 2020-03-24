@@ -1,0 +1,39 @@
+$color-primary:#161616;
+$color-secondary: #212121;
+$color-tertiary:#555555;
+$color-dark:#524D49;
+$color-light: #FFFFFF;
+$card_background-color:#F7F0EB;
+
+$card_width : 18rem;
+$card_height : 18rem;
+
+$break-points:(
+    large:1024px
+);
+
+:root {
+  --z-back    : -10;
+  --z-normal  : 1;
+  --z-tooltip : 10;
+  --z-fixed   : 100;
+  --z-modal   : 1000;
+}
+
+// variables to tipografy
+:root {
+  --h1-font-size    : 3rem;
+  --h2-font-size    : 2rem;
+  --h3-font-size    : 1.25rem;
+  --body-font-size  : .9rem;
+  --small-font-size : .75rem;
+  --angle-rotate: 45deg;
+
+  @include from(large) {
+    --h1-font-size    : 3.5rem;
+    --h2-font-size    : 3rem;
+    --h3-font-size    : 1.5rem;
+    --body-font-size  : 1rem;
+    --small-font-size : .8rem;
+  }
+}

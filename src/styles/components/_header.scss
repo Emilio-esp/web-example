@@ -1,0 +1,165 @@
+.main-header {
+    width: 100%;
+    position: fixed;
+    background-color: $color-primary;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background-color 1s ease;
+    z-index: var(--z-fixed);
+}
+
+.header {
+    height: 4rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+
+
+    &__logo{
+        width: 88px;
+        height: 60px;
+        padding: 0.5em;
+        cursor: pointer;
+    }
+}
+
+.nav {
+    background-color: black;
+    width: 100%;
+    position: absolute;
+    top: -600%;
+    left: 0;
+    transition: top 0.3s ease;
+    z-index: var(--z-back);
+
+    @include from(large){
+        z-index: var(--z-normal);
+        position: static;
+        background-color: transparent;
+        width: auto;
+    }
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include from(large){
+            flex-direction: row;
+            justify-content: flex-start;
+
+        }
+    }
+    
+    &__item {
+        padding: 0.9rem;
+        cursor: pointer;
+        position: relative;
+    }
+    
+
+    &__link{
+        color: white;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.5s ease-in-out;
+
+    }
+    &__item.active &__link{
+        &::after{
+
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            animation: grow 0.5s forwards;
+
+        }
+
+        &::before{
+
+            content: "";
+            position: absolute;
+            top: 75%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+
+            animation: grow 0.5s forwards;
+
+        }
+
+        @keyframes grow {
+            to{
+                width: 100%;
+            }
+        }
+    }
+
+    &__link:hover{
+        color: $color-tertiary;
+    }
+}
+
+.menu__toggle {
+    background-color: $color-primary;
+    height: 100%;
+    width: 4rem;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    
+    &-line {
+        height: 0.2em;
+        width: 80%;
+        background-color: darken(white, 10);
+        transition: all 0.3s ease;
+    }
+
+    @include from(large){
+        display: none;
+    }
+}
+
+.menu-active {
+    top: 100%;
+    
+}
+
+.animate-menu .menu__toggle-line:nth-child(1)  {
+    position: absolute;
+    transform: rotate(50deg);
+    width: 50%;
+    top: 50%;
+    
+}
+.animate-menu .menu__toggle-line:nth-child(2)  {
+    position: absolute;
+    display: none;
+}
+
+.animate-menu .menu__toggle-line:nth-child(3)  {
+    position: absolute;
+    top: 50%;
+    transform: rotate(-50deg);
+    width: 50%;
+}
+
+.menu-on-scroll {
+    background: solid;
+    background-color: $color-dark;
+}
+

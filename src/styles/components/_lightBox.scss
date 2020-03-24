@@ -1,0 +1,63 @@
+--root {
+    --top-position:0;
+}
+.container-lightBox {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: var(--top-position);
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: var(--z-modal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include from (large){
+        height: 100vh;
+    }
+    @include from (600px){
+        height: 100vh;
+    }
+}
+
+
+.box-image {
+    width: 80%;
+    z-index: var(--z-modal);
+    @include from (large){
+        width: 40%;
+    }
+    @include from (600px){
+        width: 40%;
+    }
+    color: white;
+    position: relative;
+    & > img {
+        width: 100%;
+    }
+}
+.light-box__options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > h5 {
+        padding: 1em;
+    }
+}
+
+.icon-image {    
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.icon-image:hover {    
+    color: $color-tertiary;
+}
+
+.icon-close {
+    position: absolute;
+    top: 0;
+    left: 101%;
+}
